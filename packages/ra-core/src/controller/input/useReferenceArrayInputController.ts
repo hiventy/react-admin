@@ -63,7 +63,7 @@ export const useReferenceArrayInputController = <
     } = useGetManyAggregate<RecordType>(
         reference,
         {
-            ids: value || EmptyArray,
+            ids: value && Array.isArray(value) ? value : [value] || EmptyArray,
             meta,
         },
         {
